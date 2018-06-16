@@ -17,7 +17,19 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     RED='\033[31m'
+
+# banner
 class banner:
+    masterBaner="""{}{}
+    .d88b.  d8888b. d888888b d8b   db  d888b  .88b  d88.  .d8b.  .d8888. d888888b d88888b d8888b. 
+   .8P  Y8. 88  `8D   `88'   888o  88 88' Y8b 88'YbdP`88 d8' `8b 88'  YP `~~88~~' 88'     88  `8D 
+   88    88 88oodD'    88    88V8o 88 88      88  88  88 88ooo88 `8bo.      88    88ooooo 88oobY' 
+   88    88 88~~~      88    88 V8o88 88  ooo 88  88  88 88~~~88   `Y8b.    88    88~~~~~ 88`8b   
+   `8P  d8' 88        .88.   88  V888 88. ~8~ 88  88  88 88   88 db   8D    88    88.     88 `88. 
+    `Y88'Y8 88      Y888888P VP   V8P  Y888P  YP  YP  YP YP   YP `8888Y'    YP    Y88888P 88   YD 
+
+                                                        by TamilBotNet and Suyambu Software ~ Arun {}        
+        """.format(bcolors.BOLD,bcolors.OKGREEN,bcolors.ENDC)
     versionBot = "v ^2.0"
     version = "v 0.1~"
     cmaname="(c) 2018 Arunkumar S"
@@ -50,13 +62,14 @@ class banner:
                                                                       version:  {}
 """.format(bcolors.BOLD,bcolors.OKGREEN,bcolors.ENDC,bcolors.BOLD,bcolors.RED,cmaname,bcolors.ENDC,bcolors.BOLD,bcolors.OKGREEN,version)
 
-     
+#QpingTool  
 class QpingMaster(cmd.Cmd):
     
     timeout = 3
     verbose = True
 
     version = "v 0.1^"
+    print banner.masterBaner
     prompt = "QpingMaster ~:)>"
     # global filename 
     filename = "active_domain_list.txt"
@@ -142,11 +155,18 @@ class QpingMaster(cmd.Cmd):
 
 
     def do_prompt(self, line):
-        self.prompt = line + ': '
+        self.prompt = line + 'QpingMaster ~:)>'
 
     def do_exit(self, line):
+        sys.stdout.write('\n')
         return True
-
+    def do_help(self,line):
+        print "=================================================================="
+        print "qping - This Command is to find the working subdomain in the list"
+        print "\n\t ~ [syntax] qping path/filename.txt "
+        print "\ncmschecker - This command is to find the CMS name And Version"
+        print "\n\t ~ [syntax] cmschecker sitename.domain"
+        print "=================================================================="
     def cmdloop_with_keyboard_interrupt(self):
         doQuit = False
         while doQuit != True:
@@ -160,6 +180,6 @@ if __name__ == '__main__':
     try:
         QpingMaster().cmdloop()
     except KeyboardInterrupt:
-        sys.stdout.write('\nExit --- Qping Master n00B\n')
+        sys.stdout.write('\nExit --- Qping Master\n')
 
     

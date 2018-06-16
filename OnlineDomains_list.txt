@@ -1,7 +1,0 @@
-http://www.google.com
-http://aboutme.google.com
-http://accounts.google.com
-http://console.actions.google.com
-http://admin.google.com
-http://adsense.google.com
-http://adssettings.google.com
